@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -237,15 +237,43 @@
                         <input type="text" id="player7" name="Joueur_7_Remplaçant" placeholder="Prénom et nom (optionnel)">
                     </div>
                 </div> 
-                <button type="submit" class="submit-btn">
+                <button type="button" class="submit-btn" onclick="exportToExcel()">
                     ✓ Inscrire l'équipe
                 </button>
+
             </form>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+    <script>
+function exportToExcel() {
+    // Récupérer les données du formulaire
+    const teamName = document.getElementById('team_name').value;
+    const coachName = document.getElementById('coach_name').value;
+    const phone = document.getElementById('phone').value;
+    const players = [];
+    for (let i = 1; i <= 7; i++) {
+        const player = document.getElementById('player' + i).value;
+        if(player) players.push(player);
+    }
+
+    // Créer un tableau pour Excel
+    const wsData = [
+        ["Nom de l'équipe", "Capitaine", "Téléphone", "Joueur 1", "Joueur 2", "Joueur 3", "Joueur 4", "Joueur 5", "Joueur 6", "Joueur 7"],
+        [teamName, coachName, phone, ...players]
+    ];
+
+    // Créer un classeur et une feuille
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.aoa_to_sheet(wsData);
+    XLSX.utils.book_append_sheet(wb, ws, "Équipe");
+
+    // Télécharger le fichier Excel
+    XLSX.writeFile(wb, `${teamName}_inscription.xlsx`);
+}
+</script>
+
 </body>
 
 </html>
-
-
-
