@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription Tournoi - Équipes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .form-container {
+            padding: 40px 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 1em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .required {
+            color: #e74c3c;
+            margin-left: 3px;
+        }
+
+        .players-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .players-section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .player-input {
+            margin-bottom: 12px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+        }
+
+        .info-box p {
+            color: #1565c0;
+            margin: 5px 0;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .form-container {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏆 Inscription au Tournoi</h1>
+            <p>Inscrivez votre équipe maintenant</p>
+        </div>
+
+        <div class="form-container">
+            <div class="info-box">
+                <p><strong>📋 Informations importantes :</strong></p>
+                <p>• Remplissez tous les champs obligatoires (*)</p>
+                <p>• Vous recevrez une confirmation par email</p>
+            </div>
+
+            <form action="https://formsubmit.co/hamidarj63@gmail.com" method="POST">
+                <!-- FormSubmit Configuration -->
+                <input type="hidden" name="_subject" value="Nouvelle inscription équipe - Tournoi">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                
+                <!-- Informations de l'équipe -->
+                <div class="form-group">
+                    <label for="team_name">Nom de l'équipe <span class="required">*</span></label>
+                    <input type="text" id="team_name" name="Nom_équipe" required placeholder="Ex: Les Champions">
+                </div> 
+                
+                <!-- Informations du responsable -->
+                <div class="form-group">
+                    <label for="coach_name">Nom du Capitain <span class="required">*</span></label>
+                    <input type="text" id="coach_name" name="Nom_responsable" required placeholder="Prénom et nom">
+                </div> 
+
+                <div class="form-group">
+                    <label for="phone">Téléphone du Capitain <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="Téléphone" required placeholder="0600000000">
+                </div>
+
+                <!-- Liste des joueurs -->
+                <div class="players-section">
+                    <h3>👥 Liste des joueurs</h3>
+                    
+                    <div class="player-input">
+                        <label for="player1">Joueur 1 <span class="required">*</span></label>
+                        <input type="text" id="player1" name="Joueur_1" required placeholder="Prénom et nom">
+                    </div>
+
+                    <div class="player-input">
+                        <label for="player2">Joueur 2 <span class="required">*</span></label>
+                        <input type="text" id="player2" name="Joueur_2" required placeholder="Prénom et nom">
+                    </div>
+
+                    <div class="player-input">
+                        <label for="player3">Joueur 3 <span class="required">*</span></label>
+                        <input type="text" id="player3" name="Joueur_3" required placeholder="Prénom et nom">
+                    </div>
+
+                    <div class="player-input">
+                        <label for="player4">Joueur 4 <span class="required">*</span></label>
+                        <input type="text" id="player4" name="Joueur_4" required placeholder="Prénom et nom">
+                    </div>
+
+                    <div class="player-input">
+                        <label for="player5">Joueur 5 <span class="required">*</span></label>
+                        <input type="text" id="player5" name="Joueur_5" required placeholder="Prénom et nom">
+                    </div>
+
+                    <div class="player-input">
+                        <label for="player6">Joueur 6 (Remplaçant)</label>
+                        <input type="text" id="player6" name="Joueur_6_Remplaçant" placeholder="Prénom et nom (optionnel)">
+                    </div>
+
+                    <div class="player-input">
+                        <label for="player7">Joueur 7 (Remplaçant)</label>
+                        <input type="text" id="player7" name="Joueur_7_Remplaçant" placeholder="Prénom et nom (optionnel)">
+                    </div>
+                </div>
+
+                <!-- Informations supplémentaires -->
+                <div class="form-group">
+                    <label for="comments">Commentaires ou demandes particulières</label>
+                    <textarea id="comments" name="Commentaires" placeholder="Informations supplémentaires..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    ✓ Inscrire l'équipe
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
